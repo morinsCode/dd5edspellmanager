@@ -59,7 +59,8 @@ function App() {
       element: <HomePage />
     },
     { 
-      path: "spellmanager", element : <SpellManager />
+      path: "spellmanager", 
+      element : <SpellManager spellData = {spellDataByClass} />
     }
   ]);
 
