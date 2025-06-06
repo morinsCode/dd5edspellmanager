@@ -5,6 +5,10 @@ import HomePage from './pages/HomePage';
 import SpellManager from "./pages/SpellManager";
 
 function App() {
+
+  
+
+
   const router = createHashRouter([
     {
       path: '/',
@@ -14,6 +18,8 @@ function App() {
       path: "spellmanager", element : <SpellManager />
     }
   ]);
+
+
 
   return <RouterProvider router={router} />;
 }

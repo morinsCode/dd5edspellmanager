@@ -20,6 +20,8 @@ const classes = [
   "Wizard",
 ];
 
+const spellLvl = [1,2,3,4,5,6,7,8,9]
+
     return (
     <>
     <div>Choose your spell caster class</div>
@@ -30,7 +32,7 @@ const classes = [
       value={cls}
       onClick={() => handleClick(cls)}
     />
-  ))};
+  ))}
 
     
 
@@ -41,9 +43,11 @@ const classes = [
             onChange = {(e) => setChosenSpellLevel(e.target.value) }
             value= {chosenSpellLevel}
     >
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
+        {spellLvl.map((spl) => (
+            <option>{spl}</option>
+
+        ))}
+
 
     </select>
     </ label>
