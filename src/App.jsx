@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 
 function App() {
   const [spellDataByClass, setSpellDataByClass] = useState({});
+  const [loading, setLoading ] = useState (true);
 
   const classEndpoints = {
     Bard: 'https://www.dnd5eapi.co/api/2014/classes/bard/spells',
@@ -42,6 +43,7 @@ function App() {
         });
         console.log('Fetched spell data for all classes:', dataByClass);
         setSpellDataByClass(dataByClass);
+        setLoading(false);
       });
     }
 

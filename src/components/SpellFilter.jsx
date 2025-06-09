@@ -1,19 +1,16 @@
-import { useState } from "react"
 
-function SpellFilter() {
 
-const [chosenClass, setChosenClass] = useState ("smurf class");
-const [chosenSpellLevel, setChosenSpellLevel] = useState ("smurf level")
+function SpellFilter(props) {
 
-const [selectedClassAndSpellLevel, setSelectedClassAndSpellLevel] = useState ({
-    selectedClass: null,
-    selectedLevel: null
-})
+const { selectedClass,selectedSpellLevel, onClassChange, onSpellLevelChange } = props;
+// Alternatively: function SpellFilter({ selectedClass, selectedSpellLevel, onClassChange, onSpellLevelChange }) {}
 
-function handleClick(classButton) {
+
+
+/* function handleClick(classButton) {
     setChosenClass(classButton);
     setSelectedClassAndSpellLevel.selectedClass(classButton);
-}
+} */
 
 const classes = [
   "Bard",
@@ -26,7 +23,7 @@ const classes = [
   "Wizard",
 ];
 
-const spellLvl = [1,2,3,4,5,6,7,8,9]
+const spellLevels = [0,1,2,3,4,5,6,7,8,9]
 
     return (
     <>
@@ -36,7 +33,7 @@ const spellLvl = [1,2,3,4,5,6,7,8,9]
       key={cls}
       type="button"
       value={cls}
-      onClick={() => handleClick(cls)}
+      onClick={() => onClassChange(cls)}
     />
   ))}
 
@@ -46,11 +43,11 @@ const spellLvl = [1,2,3,4,5,6,7,8,9]
         Choose Spell Level
         
     <select
-            onChange = {(e) => setChosenSpellLevel(e.target.value) }
-            value= {chosenSpellLevel}
+            onChange = {(e) => onSpellLevelChange(e.target.value) }
+            value= {selectedSpellLevel}
     >
-        {spellLvl.map((spl) => (
-            <option>{spl}</option>
+        {spellLevels.map((lvl) => (
+            <option key={lvl}>{lvl}</option>
 
         ))}
 
@@ -58,11 +55,11 @@ const spellLvl = [1,2,3,4,5,6,7,8,9]
     </select>
     </ label>
     <div>
-        Class: { chosenClass }
+        Class: { selectedClass }
     </div>
 
     <div>
-        Spell Level: { chosenSpellLevel }
+        Spell Level: { selectedSpellLevel }
     </div>
     
     </>
