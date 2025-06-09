@@ -3,8 +3,10 @@
 # SpellFilter, SpellListRendering, SpellCards
 */
 import SpellFilter from "../components/SpellFilter";
+/* import SpellRender from "../pages/SpellRender"; */
 
-function SpellManager () {
+function SpellManager (props) {
+    console.log (props.spellData)
 
 
   return (
@@ -19,6 +21,10 @@ function SpellManager () {
         { <SpellFilter />}
         
     </div>
+{/*     <div>
+        { <SpellRender /> }
+    </div> */}
+
     </>
         
   );

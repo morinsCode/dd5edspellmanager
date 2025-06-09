@@ -5,8 +5,14 @@ function SpellFilter() {
 const [chosenClass, setChosenClass] = useState ("smurf class");
 const [chosenSpellLevel, setChosenSpellLevel] = useState ("smurf level")
 
+const [selectedClassAndSpellLevel, setSelectedClassAndSpellLevel] = useState ({
+    selectedClass: null,
+    selectedLevel: null
+})
+
 function handleClick(classButton) {
     setChosenClass(classButton);
+    setSelectedClassAndSpellLevel.selectedClass(classButton);
 }
 
 const classes = [
