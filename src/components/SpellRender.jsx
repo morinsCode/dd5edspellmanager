@@ -39,7 +39,7 @@ function SpellRender(props) {
         onClick={() => setShowSpells(true)}
         disabled={loading}
       >
-        Show Spells
+        Summon Spells
       </button>
 
       {/* Debug: show current spell count */}

@@ -9,20 +9,26 @@ import SpellCard from "../components/SpellCard";
 
 
 function SpellManager (props) {
-    console.log (props.spellData)
+    console.log (props.spellDataByClass)
     const [selectedClass, setSelectedClass] = useState("");
     const [selectedSpellLevel, setSelectedSpellLevel] = useState(1);
 
-  // Get spells for the selected class from the full dataset
+  /* 
+  # spells for the selected class from the full dataset
+  # teranary expression used in variabel declaration, could be done with if or function
+    # checks if selectedClass is truthy
+    # ?. optional chaining https://www.geeksforgeeks.org/javascript/javascript-optional-chaining/
+
+  */
   const spellsForClass =
-    selectedClass && props.spellData[selectedClass]?.results
-      ? props.spellData[selectedClass].results
+    selectedClass && props.spellDataByClass[selectedClass]?.results
+      ? props.spellDataByClass[selectedClass].results
       : [];
 
 
-  // Filter the class-specific spells up to and including the selected level
+  //  up to and including the selected level
   const filteredSpells = spellsForClass.filter(
-    (spell) => spell.level <= Number(selectedSpellLevel) // Include spells up to selected level
+    (spell) => spell.level <= Number(selectedSpellLevel) //  spells up to selected level
   );
 
 
