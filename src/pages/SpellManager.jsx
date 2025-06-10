@@ -5,6 +5,7 @@
 import { useState } from "react";
 import SpellFilter from "../components/SpellFilter";
 import SpellRender from "../components/SpellRender";
+import SpellCard from "../components/SpellCard";
 
 
 function SpellManager (props) {
@@ -44,6 +45,7 @@ function SpellManager (props) {
         
     </div>
         <SpellRender spells={filteredSpells} loading={props.loading} />
+        <SpellCard />
 
 
     </>

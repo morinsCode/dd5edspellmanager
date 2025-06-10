@@ -3,7 +3,7 @@
 function SpellFilter(props) {
 
 const { selectedClass,selectedSpellLevel, onClassChange, onSpellLevelChange } = props;
-// Alternatively: function SpellFilter({ selectedClass, selectedSpellLevel, onClassChange, onSpellLevelChange }) {}
+// Alt: function SpellFilter({ selectedClass, selectedSpellLevel, onClassChange, onSpellLevelChange }) {}
 
 
 
