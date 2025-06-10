@@ -12,6 +12,8 @@ function SpellManager (props) {
     console.log (props.spellDataByClass)
     const [selectedClass, setSelectedClass] = useState("");
     const [selectedSpellLevel, setSelectedSpellLevel] = useState(1);
+    const [selectedSpellUrl, setSelectedSpellUrl] = useState(null);
+    const [spellDetails, setSpellDetails] = useState(null)
 
   /* 
   # spells for the selected class from the full dataset
@@ -32,6 +34,17 @@ function SpellManager (props) {
   );
 
 
+function handleSpellClick(url) {
+  setSelectedSpellUrl(url);
+  fetch(url)
+    .then(r => r.json())
+    .then(data => {
+      setSpellDetails(data);
+      console.log(data);        // ← logs the fetched object immediately
+    });
+}
+
+
 
   return (
     <>
@@ -43,6 +56,7 @@ function SpellManager (props) {
     <div>
         
         <SpellFilter
+     /*      title={"Select your options"} */
           selectedClass={selectedClass}
           selectedSpellLevel={selectedSpellLevel}
           onClassChange={setSelectedClass}
@@ -50,8 +64,13 @@ function SpellManager (props) {
         />
         
     </div>
-        <SpellRender spells={filteredSpells} loading={props.loading} />
-        <SpellCard />
+        <SpellRender 
+          spells={filteredSpells} 
+          onSpellClick={handleSpellClick} 
+          loading={props.loading} />
+        <SpellCard 
+        spellDetails={spellDetails}
+         />
 
 
     </>
