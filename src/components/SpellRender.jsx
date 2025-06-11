@@ -21,6 +21,7 @@ function SpellRender(props) {
   : <p>No spells available at this level.</p>
 }
 
+
       <p>Spells available: {spells.length}</p>
 
       {/* Show spells in a table after button click */}
