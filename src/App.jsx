@@ -4,6 +4,7 @@ import { createHashRouter, RouterProvider } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import SpellManager from "./pages/SpellManager";
 import { useEffect, useState } from 'react';
+import SpellKeyExplorer from './components/SpellKeyExplorer';
 
 function App() {
   const [spellDataByClass, setSpellDataByClass] = useState({});
@@ -64,6 +65,10 @@ function App() {
     { 
       path: "spellmanager", 
       element : <SpellManager spellDataByClass={spellDataByClass} loading={loading} />
+    },
+    {
+      path: "spellkeys",
+      element: <SpellKeyExplorer />
     }
   ]);
 
