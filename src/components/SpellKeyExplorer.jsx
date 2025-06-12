@@ -4,7 +4,6 @@
 ! eftersom det skilde sig mellan olika spells.
 */
 
-
 import { useEffect, useState } from "react";
 
 // Build a tree structure from dot-notated paths
@@ -45,7 +44,7 @@ function SpellKeyExplorer() {
           const spell = await spellRes.json();
 
           collectNestedPaths(spell).forEach((path) =>
-            insertIntoTree(tree, path)
+            insertIntoTree(tree, path),
           );
         }
 

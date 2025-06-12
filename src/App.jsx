@@ -1,25 +1,24 @@
 // src/App.jsx
-import './App.css';
-import { createHashRouter, RouterProvider } from 'react-router-dom';
-import HomePage from './pages/HomePage';
+import "./App.css";
+import { createHashRouter, RouterProvider } from "react-router-dom";
+import HomePage from "./pages/HomePage";
 import SpellManager from "./pages/SpellManager";
-import { useEffect, useState } from 'react';
-import SpellKeyExplorer from './components/SpellKeyExplorer';
+import { useEffect, useState } from "react";
+import SpellKeyExplorer from "./components/SpellKeyExplorer";
 
 function App() {
   const [spellDataByClass, setSpellDataByClass] = useState({});
-  const [loading, setLoading ] = useState (true);
-  
+  const [loading, setLoading] = useState(true);
 
   const classEndpoints = {
-    Bard: 'https://www.dnd5eapi.co/api/2014/classes/bard/spells',
-    Cleric: 'https://www.dnd5eapi.co/api/2014/classes/cleric/spells',
-    Druid: 'https://www.dnd5eapi.co/api/2014/classes/druid/spells',
-    Paladin: 'https://www.dnd5eapi.co/api/2014/classes/paladin/spells',
-    Ranger: 'https://www.dnd5eapi.co/api/2014/classes/ranger/spells',
-    Sorcerer: 'https://www.dnd5eapi.co/api/2014/classes/sorcerer/spells',
-    Warlock: 'https://www.dnd5eapi.co/api/2014/classes/warlock/spells',
-    Wizard: 'https://www.dnd5eapi.co/api/2014/classes/wizard/spells',
+    Bard: "https://www.dnd5eapi.co/api/2014/classes/bard/spells",
+    Cleric: "https://www.dnd5eapi.co/api/2014/classes/cleric/spells",
+    Druid: "https://www.dnd5eapi.co/api/2014/classes/druid/spells",
+    Paladin: "https://www.dnd5eapi.co/api/2014/classes/paladin/spells",
+    Ranger: "https://www.dnd5eapi.co/api/2014/classes/ranger/spells",
+    Sorcerer: "https://www.dnd5eapi.co/api/2014/classes/sorcerer/spells",
+    Warlock: "https://www.dnd5eapi.co/api/2014/classes/warlock/spells",
+    Wizard: "https://www.dnd5eapi.co/api/2014/classes/wizard/spells",
   };
 
   useEffect(() => {
@@ -43,36 +42,31 @@ function App() {
             dataByClass[className] = data;
           }
         });
-        console.log('Fetched spell data for all classes:', dataByClass);
+        console.log("Fetched spell data for all classes:", dataByClass);
         setSpellDataByClass(dataByClass);
         setLoading(false);
       });
     }
 
     fetchAllClasses();
-  }, []); 
-  
-  
-
-
-
+  }, []);
 
   const router = createHashRouter([
     {
-      path: '/',
-      element: <HomePage />
+      path: "/",
+      element: <HomePage />,
     },
-    { 
-      path: "spellmanager", 
-      element : <SpellManager spellDataByClass={spellDataByClass} loading={loading} />
+    {
+      path: "spellmanager",
+      element: (
+        <SpellManager spellDataByClass={spellDataByClass} loading={loading} />
+      ),
     },
     {
       path: "spellkeys",
-      element: <SpellKeyExplorer />
-    }
+      element: <SpellKeyExplorer />,
+    },
   ]);
-
-
 
   return <RouterProvider router={router} />;
 }

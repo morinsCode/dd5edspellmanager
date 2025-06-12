@@ -1,12 +1,9 @@
-
 #root {
-
   padding: 2rem;
 }
 
-
 .app-container {
-  background-color: #f8f9fa; 
+  background-color: #f8f9fa;
   border-radius: 8px;
   padding: 1.5rem;
 }

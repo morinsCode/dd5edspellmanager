@@ -2,11 +2,10 @@ import { useState } from "react";
 import SpellFilter from "../components/SpellFilter";
 import SpellRender from "../components/SpellRender";
 import SpellCard from "../components/SpellCard";
-import "./SpellManager.css"; 
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-
+import "./SpellManager.css";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 function SpellManager(props) {
   const [selectedClass, setSelectedClass] = useState("");
@@ -20,7 +19,7 @@ function SpellManager(props) {
       : [];
 
   const filteredSpells = spellsForClass.filter(
-    (spell) => spell.level <= Number(selectedSpellLevel)
+    (spell) => spell.level <= Number(selectedSpellLevel),
   );
 
   function handleSpellClick(url) {
@@ -34,37 +33,35 @@ function SpellManager(props) {
   }
 
   return (
-<Container fluid="md">
-  <h1>Spellbook</h1>
+    <Container fluid="md">
+      <h1>Spellbook</h1>
 
+      <Row>
+        <Col className="left-panel">
+          <div className="spell-filter">
+            <SpellFilter
+              selectedClass={selectedClass}
+              selectedSpellLevel={selectedSpellLevel}
+              onClassChange={setSelectedClass}
+              onSpellLevelChange={setSelectedSpellLevel}
+            />
+          </div>
+          <div className="spell-render">
+            <SpellRender
+              spells={filteredSpells}
+              onSpellClick={handleSpellClick}
+              loading={props.loading}
+            />
+          </div>
+        </Col>
 
-  <Row>
-    <Col className="left-panel">
-      <div className="spell-filter">
-        <SpellFilter
-          selectedClass={selectedClass}
-          selectedSpellLevel={selectedSpellLevel}
-          onClassChange={setSelectedClass}
-          onSpellLevelChange={setSelectedSpellLevel}
-        />
-      </div>
-      <div className="spell-render">
-        <SpellRender
-          spells={filteredSpells}
-          onSpellClick={handleSpellClick}
-          loading={props.loading}
-        />
-      </div>
-    </Col>
-
-    <Col>
-      <div className="sticky-card">
-        <SpellCard spellDetails={spellDetails} />
-      </div>
-    </Col>
-  </Row>
-</Container>
-
+        <Col>
+          <div className="sticky-card">
+            <SpellCard spellDetails={spellDetails} />
+          </div>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
