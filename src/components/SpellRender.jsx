@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function SpellRender(props) {
   const { spells, loading } = props;
-  const [showSpells, setShowSpells] = useState(false); // Local state to toggle visibility
+  const [showSpells, setShowSpells] = useState(false); 
 
   return (
 
@@ -31,7 +31,7 @@ function SpellRender(props) {
             <tr>
               <th>Name</th>
               <th>Level</th>
-              <th>Url</th>
+         {/*      <th>Url</th> */}
             </tr>
           </thead>
           <tbody>

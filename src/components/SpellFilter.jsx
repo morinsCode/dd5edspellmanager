@@ -3,14 +3,9 @@
 function SpellFilter(props) {
 
 const { selectedClass,selectedSpellLevel, onClassChange, onSpellLevelChange } = props;
-// Alt: function SpellFilter({ selectedClass, selectedSpellLevel, onClassChange, onSpellLevelChange }) {}
 
 
 
-/* function handleClick(classButton) {
-    setChosenClass(classButton);
-    setSelectedClassAndSpellLevel.selectedClass(classButton);
-} */
 
 const classes = [
   "Bard",

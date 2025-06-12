@@ -1,15 +1,23 @@
+import { Container, Row, Col } from "react-bootstrap";
 
 
 function SpellCard({ spellDetails }) {
   return (
     <>
+    <Container>
       {spellDetails && (
         <>
-          <h1>Spell Card</h1>
-          <h2>{spellDetails?.name || "Select a spell to see details"}</h2>
+          <Row>
+            <Col>
+          <h1>{spellDetails?.name}</h1>
+          </Col>
+          <Col>
+          <p>
+            <h2>School:</h2> {spellDetails?.school?.name}</p>
+            </Col>
+          </Row>
 
           {/* General Info */}
-          <p>School: {spellDetails?.school?.name}</p>
           <p>Spell Level: {spellDetails?.level}</p>
           <p>Casting Time: {spellDetails?.casting_time}</p>
           <p>Range: {spellDetails?.range}</p>
@@ -91,6 +99,7 @@ function SpellCard({ spellDetails }) {
           )}
         </>
       )}
+      </Container>
     </>
   );
 }

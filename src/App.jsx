@@ -9,7 +9,7 @@ import SpellKeyExplorer from './components/SpellKeyExplorer';
 function App() {
   const [spellDataByClass, setSpellDataByClass] = useState({});
   const [loading, setLoading ] = useState (true);
-  // todo whats up with loading being declared-not-read
+  
 
   const classEndpoints = {
     Bard: 'https://www.dnd5eapi.co/api/2014/classes/bard/spells',
