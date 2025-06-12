@@ -15,7 +15,7 @@ function SpellRender(props) {
 </button>
  
 
-      {/* Debug: show current spell count */}
+      {/* Debug */}
       {props.spells.length > 0
   ? <table>{/* render spells */}</table>
   : <p>No spells available at this level.</p>
@@ -24,14 +24,14 @@ function SpellRender(props) {
 
       <p>Spells available: {spells.length}</p>
 
-      {/* Show spells in a table after button click */}
+
       {showSpells && spells.length > 0 && (
         <table>
           <thead>
             <tr>
               <th>Name</th>
               <th>Level</th>
-         {/*      <th>Url</th> */}
+
             </tr>
           </thead>
           <tbody>
@@ -42,7 +42,7 @@ function SpellRender(props) {
               >
                 <td>{spell.name}</td>
                 <td>{spell.level}</td>
-               {/*  <td>{spell.url}</td> */}
+
               </tr>
             ))}
           </tbody>
